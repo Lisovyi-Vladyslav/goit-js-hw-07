@@ -5,10 +5,10 @@ console.log(galleryItems);
 
 
 const mainGalarry = document.querySelector(".gallery");
+
 const galleryMarkup = createGalarryMarkup(galleryItems);
 
 mainGalarry.insertAdjacentHTML('beforeend', galleryMarkup);
-mainGalarry.addEventListener("click", onClick);
 
 function createGalarryMarkup(galleryItems) {
     return galleryItems
@@ -26,15 +26,10 @@ function createGalarryMarkup(galleryItems) {
         .join("");
 }
 
-function onClick(event) {
-    event.preventDefault();
 const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
     captionDelay: 250,
 });
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-    
-    lightbox.open();
-}   
+
+lightbox.open();
+
